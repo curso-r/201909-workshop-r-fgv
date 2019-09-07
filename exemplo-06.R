@@ -29,7 +29,7 @@ ui <- fluidPage(
   tags$br(),
   verbatimTextOutput("regions"),
   verbatimTextOutput("current_region"),
-  verbatimTextOutput("regions_class")
+  tags$img(src = "dados/mestrado_corujas.png", width = 700)
 )
 
 # Define server logic required to draw a histogram
@@ -138,10 +138,6 @@ server <- function(input, output, session) {
     }
     names(suggested_annotations) <- c("sound_id", "segmentation_id", "start", "end", "label")
     ws_add_regions("meu_ws", suggested_annotations)
-  })
-  
-  output$regions_class <- renderPrint({
-    reactiveValuesToList(input)
   })
   
   output$current_region <- renderPrint({
