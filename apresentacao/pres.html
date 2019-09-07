@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Workshop: Conheça o R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Curso-R" />
+    <meta name="date" content="2019-09-07" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Workshop: Conheça o R
+## Uma introdução ao universo da ciência de dados
+### Curso-R
+### 2019-09-07
+
+---
+
+class: inverse, middle, center
+
+# Quem somos?
+
+---
+## curso-r
+
+&lt;img src="img/professores.png"&gt;
+
+---
+
+## curso-r
+
+- Primeiros cursos em 2015, no programa de verão do IME-USP
+
+- Curso-R surge oficialmente em 2017
+
+- Em 2018, começamos a pegar projetos de consultoria, e surge a R6
+
+- Desde 2017, são mais de 30 cursos e 500 alunos
+
+&lt;br&gt;
+
+.pull-left[
+&lt;img src="img/logo-cursor.jpg"&gt;
+]
+
+.pull-right[
+&lt;img src="img/logo-rseis.png" width = "75%"&gt;
+]
+
+
+---
+
+## Habilidades importantes para um cientista de dados
+
+* Curiosidade
+
+* Análise crítica
+
+* Conhecer o método científico
+
+* Modelar
+
+* Programar
+
+
+&lt;img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" style=" display: block; margin-left: auto; margin-right: auto;" width = "200px" height = "200px"&gt;
+
+---
+
+class: inverse, middle, center
+
+# Por que programar?
+
+---
+## O computador é a ferramenta do cientista de dados
+
+&lt;img src="img/parafuso.jpeg" style="display: block; margin-left: auto; margin-right: auto; width: 70%"&gt; 
+
+---
+## Precisamos nos comunicar com o computador
+
+&lt;img src="img/diagrama-programacao.png" style="display: block; margin-left: auto; margin-right: auto; width: 70%"&gt; 
+
+---
+## Point-click vs linguagens de programação
+
+&lt;br&gt;
+
+.pull-left[
+&lt;img src = "img/casa-da-barbie.jpg" style="width:80%"&gt;
+]
+
+
+.pull-right[
+&lt;img src = "img/lego.jpg" style="width:80%"&gt;
+]
+
+---
+
+# O que são linguagens de programação?
+
+&lt;br&gt;
+&lt;br&gt;
+
+&gt; Uma linguagem de programação é um vocabulário e um conjunto de regras gramaticais que servem para instruir um computador a executar uma tarefa específica.
+
+ou
+
+&gt; é o jeito de conversar com o computador.
+
+---
+class: center, middle
+
+### Por que programar é preferível?
+
+&lt;br&gt;
+
+# 1. Código é texto
+# 2. Código é legível
+# 3. Código é aberto
+
+---
+class: middle, center, inverse
+
+# Código é texto
+
+---
+class: middle, center
+
+### Copiar &amp; Colar 
+
+&lt;img src="https://camo.githubusercontent.com/c8400b8b8aa5d9eb50641b3a1c47088cb9103f8b/687474703a2f2f7777772e6a6f736f66746563682e636f6d2f696d616765732f636f70792d70617374652e706e67" style="width: 95%"&gt;
+
+---
+class: middle, center
+
+### Stack Overflow
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/44841420-acea5b80-ac19-11e8-8205-f17c01fbb803.png" style="width: 70%"&gt;
+
+---
+class: middle, center, inverse
+
+# Código é legível
+
+---
+
+
+
+
+```r
+image_read("https://jeroen.github.io/images/frink.png") %&gt;%
+  image_rotate(270) %&gt;%
+  image_background("blue", flatten = TRUE) %&gt;%
+  image_border("red", "10x10") %&gt;%
+  image_annotate("Liguagens de programação ainda\nsão linguagens!", 
+                 color = "white", size = 30)
+```
+
+
+.pull-left[
+&lt;img src = "https://jeroen.github.io/images/frink.png"&gt;
+]
+
+
+--
+
+.pull-right[
+&lt;img src="pres_files/figure-html/unnamed-chunk-3-1.png" width="620" /&gt;
+]
+
+
+---
+
+## Código te dá confiança de que está certo!
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/44843506-dbb70080-ac1e-11e8-892b-744a60bafaeb.png" style="width:80%;"&gt;
+
+---
+class: middle, center, inverse
+
+# Código é aberto
+
+---
+
+# Grátis
+
+* Estudantes podem usar as mesmas ferramentas que os profissionais
+* Todos podem usar as melhores ferramentas independente do poder financeiro
+* Qualquer um pode reproduzir as suas análises
+
+
+# Aberto
+
+* Você pode corrigir problemas
+* Você pode desenvolver suas próprias ferramentas
+
+## Todas as linguagens de programação modernas são open-source.
+
+---
+
+# A linguagem R
+
+* R é uma linguagem de programação
+
+
+* R é Open Source
+
+
+* R possui uma comunidade muito ativa de desenvolvedores
+
++
+
+* R foi criado para fazer análise de dados.
+
+---
+class: inverse, middle, center
+
+# Por que usar o R?
+
+---
+
+## Ciclo da ciência de dados
+
+&lt;img src="img/ciclo-ciencia-de-dados.png" style = "display: block; margin-left: auto; margin-right: auto;"&gt;
+
+---
+
+## Ciclo da ciência de dados
+
+&lt;img src="img/ciclo-ciencia-de-dados-pacotes.png" style = "display: block; margin-left: auto; margin-right: auto;"&gt;
+
+---
+class: inverse, middle, center
+
+## Por que usar o R?
+
+&lt;img src="img/cola.png" style = "display: block; margin-left: auto; margin-right: auto;"&gt;
+
+O R é a **cola**.
+
+# Exemplos
+
+## Vamos ao R!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

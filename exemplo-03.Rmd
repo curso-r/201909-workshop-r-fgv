@@ -1,0 +1,122 @@
+---
+title: "Exemplo de gráficos"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+```{r}
+hist(rnorm(100000), breaks = 100)
+```
+
+
+```{r}
+df <- read_excel("base-agregada.xlsx") %>%
+  dplyr::mutate(
+    dayofweek = dplyr::case_when(
+      dayofweek %in% c("dom", "Sun") ~ "Domingo",
+      dayofweek %in% c("seg", "Mon") ~ "Segunda",
+      dayofweek %in% c("ter", "Tue") ~ "Terça",
+      dayofweek %in% c("qua", "Wed") ~ "Quarta",
+      dayofweek %in% c("qui", "Thu") ~ "Quinta",
+      dayofweek %in% c("sex", "Fri") ~ "Sexta",
+      dayofweek %in% c("sáb", "Sat") ~ "Sábado",
+      TRUE ~ dayofweek
+    )
+  )
+```
+
+
+```{r}
+# um grafico
+ggplot(df, aes(x = mass_co, y = mass_no, colour = dayofweek)) +
+  geom_point()
+```
+
+
+```{r}
+# mais uma linha de codigo, 7 graficos
+ggplot(df, aes(x = mass_co, y = mass_no, colour = dayofweek)) +
+  geom_point() +
+  facet_wrap(~dayofweek)
+```
+
+
+```{r}
+# mais uma linha de codigo, 7 modelos
+ggplot(df, aes(x = mass_co, y = mass_no, colour = dayofweek)) +
+  geom_point() +
+  facet_wrap(~dayofweek) +
+  stat_smooth(method = "lm", colour = "royalblue")
+```
+
+
+```{r}
+# comentar uma linha e mexer na transparencia, outro grafico legal
+ggplot(df, aes(x = mass_co, y = mass_no, colour = dayofweek)) +
+  geom_point(alpha = 0.1) +
+  # facet_wrap(~dayofweek) +
+  stat_smooth(method = "lm")
+```
+
+
+```{r}
+# mais uma linha, grafico interativo
+grafico <- ggplot(df, aes(x = mass_co, y = mass_no, colour = dayofweek)) +
+  geom_point(alpha = 0.1) +
+  stat_smooth(method = "lm")
+
+plotly::ggplotly(grafico)
+```
+
+
+```{r}
+# exercicio: 
+# 1) copie e cole o código do grafico interativo acima
+# 2) crie 7 graficos interativos de uma so vez adicionando uma linha de codigo
+# DICA: use codigo dos exemplos anteriores
+```
+
+
+## Outro exemplo
+
+Fazer pivotagem de tabela (derreter a tabela, ou fazer "efeito tabela dinamica")
+
+```{r}
+df2 <- df %>% select(mass_no, mass_co, time) %>% sample_n(15)
+
+# fazer pivotagem de tabela (derreter a tabela, ou fazer "efeito tabela dinamica")
+df %>% 
+  gather(poluente, conc, mass_no, mass_co) %>% 
+  ggplot() +
+  geom_line(aes(x = time, y = conc)) +
+  facet_wrap(~poluente, scales = "free_y")
+```
+
+
+```{r}
+p <- df %>% 
+  gather(poluente, conc, mass_no, mass_co) %>% 
+  group_by(poluente, hour) %>% 
+  summarise(conc = mean(conc, na.rm = TRUE)) %>%
+  ggplot() +
+  geom_line(aes(x = hour, y = conc)) +
+  facet_wrap(~poluente, scales = "free_y") +
+  scale_x_continuous(breaks = seq(0, 24, 4))
+
+plotly::ggplotly(p)  
+
+```
+
+## Um mapa do nada
+
+```{r}
+# install.packages("leaflet")
+library(leaflet)
+
+```
+
