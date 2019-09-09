@@ -1,4 +1,5 @@
 library(googledrive)
+
 # credencial do google drive -------------------------------------------------------------------------------------
 drive_auth()
 
@@ -6,10 +7,8 @@ drive_auth()
 bases <- drive_find(pattern = "tpa_saude", type = "folder") %>% drive_ls(type = "csv")
 
 # baixar um arquivo ----------------------------------------------------------------------------------------------
-id <- bases$id[1]
-
 drive_download(
-  as_id(id),
+  as_id(bases$id[1]),
   overwrite = TRUE
 )
 

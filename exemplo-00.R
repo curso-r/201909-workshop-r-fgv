@@ -10,6 +10,7 @@ install.packages("recipes")
 install.packages("caret")
 install.packages("ranger")
 install.packages("flexdashboard")
+install.packages("googledrive")
 remotes::install_github("athospd/wavesurfer")
 remotes::install_github("abjur/abjData")
 
