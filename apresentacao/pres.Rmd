@@ -11,6 +11,12 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+
+class: inverse, middle, center
+
+# bit.ly/curso-r-fgv
+
+---
 class: inverse, middle, center
 
 # Quem somos?
