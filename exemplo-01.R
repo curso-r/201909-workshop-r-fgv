@@ -1,6 +1,8 @@
 library(tidyverse)
 library(readxl)
 
+#----------------------------------------------------------------------------------
+# carregar muitos arquivos de uma so vez
 arquivos <- list.files(path = "data-raw", pattern = "CO", full.names = TRUE)
 arquivos
 

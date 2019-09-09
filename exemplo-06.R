@@ -76,7 +76,7 @@ server <- function(input, output, session) {
       annotations = annotations_df,
       waveColor = "#cc33aa"
     ) %>%
-      ws_region_labeller()
+      ws_annotator()
   })
   
   observeEvent(input$play, {

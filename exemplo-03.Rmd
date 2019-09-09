@@ -112,11 +112,19 @@ plotly::ggplotly(p)
 
 ```
 
-## Um mapa do nada
+## Um mapa
 
 ```{r}
-# install.packages("leaflet")
 library(leaflet)
+data("dados_aj", package = "abjData")
+dados_aj
+```
 
+
+```{r}
+dados_aj %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~long, lat = ~lat, clusterOptions = markerClusterOptions())
 ```
 

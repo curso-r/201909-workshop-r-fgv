@@ -2,6 +2,8 @@ library(tidyverse)
 library(readxl)
 library(writexl)
 
+#----------------------------------------------------------------------------------
+# juntar bases com informacoes complementares
 arquivos_CO <- list.files(path = "data-raw", pattern = "CO", full.names = TRUE)
 arquivos_NO <- list.files(path = "data-raw", pattern = "NO", full.names = TRUE)
 
